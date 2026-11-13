@@ -11,16 +11,16 @@ Alles van ons staat onder één map, zodat het niet door de standaardbestanden v
 ```
 Assets/_Project/
   Scenes/        Hoofdmenu, Gang, Woonkamer, Slaapkamer (Zolder later)
-    Test/        Testscenes T00–T13 per VR-techniek (zie TEST_SCENES.md), niet in de releasebuild
+    Test/        Pathway_Comparable (alle pathway-lessen in één ruimte) en later T00–T13 (zie TEST_SCENES.md), niet in de releasebuild
   Scripts/
     Core/        GameManager, GameSettings, FearMeter
-    Player/      ComfortSettings, Flashlight, GhostTrap, Belt, HapticsManager
+    Player/      ComfortSettings, Flashlight, GhostTrap, Belt, HapticsManager, NearbyHaptics
     Ghosts/      Ghost, GhostData, HidingSpot
     Puzzles/     Puzzle (basis), BringPuzzle, OpenRemovePuzzle, TogglePuzzle, GiveZone
-    World/       Room, Door, Interactable, LightSwitch (Daniël)
-    UI/          Menu's, ComfortMenu, Watch, ThoughtBubble, CaughtMessage
+    World/       Room, Door, Interactable, ReturnToStart, Toggleable, LightSwitch (Daniël)
+    UI/          Menu's, ComfortMenu, Watch, ThoughtBubble, CaughtMessage, FpsCounter, ButtonFeedback
   Data/          GameSettings.asset, een GhostData per spook
-  Prefabs/       Player (de VR-speler), Spoken, Props, Deuren, UI-panelen (InfoPanel, ComfortPanel), Zaklamp, Spookval
+  Prefabs/       Player (de VR-speler), Zaklamp, Spookval (nu nog Spookval_Placeholder), Spoken, Props, Deuren, UI-panelen (InfoPanel, ComfortPanel)
   Art/           Models, Materials, Textures, Palette
   Audio/         Roep per spook, Ambient per kamer, SFX, UI
   VFX/           Zuig-effect, Gevangen!, Zwarte deur (Viktor)
@@ -58,7 +58,10 @@ In woorden: de speler richt de **zaklamp** op een **spook** en houdt de **spookv
 | Comfort-schakelaars | `ComfortMenu` | prefab `UI/ComfortPanel` | technicus + artist |
 | Uitlegpaneel van een testscene | (geen script; tekst in de prefab) | prefab `UI/InfoPanel` | iedereen |
 | Moed-meter | `FearMeter` | op de zaklamp-prefab | technicus |
-| Zaklamp en lichtbundel | `Flashlight` | prefab `Zaklamp` | technicus + artist |
+| Zaklamp en lichtbundel | `Flashlight` (aan/uit met de trekker; spoken opsporen komt later) | prefab `Zaklamp` | technicus + artist |
+| Weggegooid voorwerp komt terug | `ReturnToStart` | op elk pakbaar voorwerp | technicus |
+| Iets aan/uit zetten (radio, lampje, lichten) | `Toggleable` | op het voorwerp; koppel een knop of activation event aan `Toggle` | technicus |
+| Trillen als iets dichtbij is | `NearbyHaptics` (via `HapticsManager`) | op het spook (nu: het groene spook in de testscene) | technicus |
 | Spookval en "Gevangen!" | `GhostTrap` | prefab `Spookval` | technicus |
 | Riem met holsters | `Belt` (met Socket Interactors) | aan de speler, op middelhoogte | technicus |
 | Spook | `Ghost` + `GhostData` | prefab per spook | ontwerper (data), technicus (gedrag) |
@@ -66,7 +69,7 @@ In woorden: de speler richt de **zaklamp** op een **spook** en houdt de **spookv
 | Puzzel | `BringPuzzle`, `OpenRemovePuzzle` of `TogglePuzzle` | op de props in de kamer | ontwerper + technicus |
 | Kamer | `Room` | root van elke kamer-scene | ontwerper |
 | Zwarte deur | `Door` | prefab `ZwarteDeur` | technicus + artist |
-| Trillingen | `HapticsManager` | leeg object in de speler | technicus |
+| Trillingen | `HapticsManager` | op de `Player`-prefab | technicus |
 | Menu's, horloge, gedachtebel | scripts in `UI/` | world-space panelen | artist + technicus |
 
 ## 4. Zo verander je iets

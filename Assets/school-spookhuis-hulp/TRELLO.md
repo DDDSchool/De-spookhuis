@@ -128,6 +128,8 @@ Momentopname van https://trello.com/b/AK7eTg6w/spookhuis-p2 (stand 13 nov 2026).
 
 ## Testscenes (nieuw, prioriteit Should; zie `TEST_SCENES.md`)
 
+Let op: T01 t/m T10 staan ook samen als stations in de scene `Pathway_Comparable` (voorstel voor een eigen kaart: **T98** [S] Pathway Comparable, alle lessen van missie 1 t/m 3 in één ruimte).
+
 - [ ] **T00** [S] Testhub (paneel per scene, knop naar elke test)
 - [ ] **T01** [S] Testscene Locomotion (teleport, snap turn, vignet)
 - [ ] **T02** [S] Testscene Voorwerpen pakken en gooien (5+ soorten)

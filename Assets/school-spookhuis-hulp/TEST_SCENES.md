@@ -4,6 +4,20 @@ Voor het hele team. Elke techniek uit het Unity VR-pathway krijgt een **kleine t
 
 **Dit vervangt de lessen niet.** De lessen, challenges en labs van het pathway (quizzen tellen niet, missie 4 is optioneel) blijven werk van de studenten zelf (zie `PROJECT_PLAN.md`). De testscenes zijn onze eigen voorbeelden in ons project, om mee te oefenen en bij terug te kijken. Vraag aan de docent of dat zo mag.
 
+## Alles in één: `Pathway_Comparable`
+
+Naast de losse scenes bestaat er één gecombineerde scene: `Assets/_Project/Scenes/Test/Pathway_Comparable.unity`. Eén ruimte met een plek (station) per les, elk met een eigen InfoPanel. Hij is er als reserve: zo is er altijd één scene die het hele pathway laat zien, ook als de losse scenes niet af komen.
+
+| Plek in de ruimte | Station | Komt overeen met |
+| --- | --- | --- |
+| Startmuur (noord) | 1.2 Locomotion, comfort-paneel, 3.1 Comfort | T01, T08 |
+| Oost | 1.3 Pakken en gooien, 1.4 Sockets (riem-pop, geefzone) | T02, T03 |
+| Zuid | 2.1 Geluid en trillen, 2.2 Activation events, 2.3 Near-Far en Ray, 2.4 UI | T04 t/m T07 |
+| West | 3.2 + 3.3 Prestaties en licht (fps-teller, realtime- en baked-hoek), 3.4 Bouwen en delen | T09, T10 |
+| Hoek noordoost | bord "Missie 4 – later" | T11 t/m T13, nog niet gebouwd |
+
+De stations gebruiken dezelfde scripts als de game (`Flashlight`, `HapticsManager`, `ReturnToStart`, `Toggleable`, `ComfortSettings`). Missie 4 volgt pas als het team heeft beslist hoe de spookval opengaat en wat een spook doet nadat het gevlucht is. Er is nog geen "Terug naar hub"-knop, want T00 bestaat nog niet.
+
 ## Regels voor alle testscenes
 
 - Map: `Assets/_Project/Scenes/Test/`. Naam: `T01_Locomotion`, `T02_Grabbables` enzovoort, plus een scene `T00_Testhub`.
