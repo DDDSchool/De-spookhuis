@@ -53,4 +53,17 @@ public class GameSettings : ScriptableObject
 
     [Tooltip("Om de hoeveel seconden een nieuwe tril-puls komt.")]
     [Range(0.05f, 1f)] public float nearbyPulseInterval = 0.25f;
+
+    [Header("Testscene: trektouw (station 2.1)")]
+    [Tooltip("Hoe ver je het handvat omlaag kunt trekken, in meter.")]
+    [Range(0.1f, 1.5f)] public float pullMaxDistance = 0.6f;
+
+    [Tooltip("Hoe sterk de controller trilt als het touw helemaal uitgetrokken is (0 tot 1).")]
+    [Range(0f, 1f)] public float pullMaxStrength = 1f;
+
+    [Tooltip("Om de hoeveel seconden een nieuwe tril-puls komt terwijl je trekt.")]
+    [Range(0.05f, 0.5f)] public float pullPulseInterval = 0.1f;
+
+    [Tooltip("Hoe snel het handvat terugveert als je loslaat, in meter per seconde.")]
+    [Range(0.2f, 5f)] public float pullReturnSpeed = 1.5f;
 }

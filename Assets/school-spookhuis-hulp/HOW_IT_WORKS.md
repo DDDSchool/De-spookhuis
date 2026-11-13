@@ -17,7 +17,7 @@ Assets/_Project/
     Player/      ComfortSettings, Flashlight, GhostTrap, Belt, HapticsManager, NearbyHaptics
     Ghosts/      Ghost, GhostData, HidingSpot
     Puzzles/     Puzzle (basis), BringPuzzle, OpenRemovePuzzle, TogglePuzzle, GiveZone
-    World/       Room, Door, Interactable, ReturnToStart, Toggleable, LightSwitch (Daniël)
+    World/       Room, Door, Interactable, ReturnToStart, Toggleable, PullRope (testscene), LightSwitch (Daniël)
     UI/          Menu's, ComfortMenu, Watch, ThoughtBubble, CaughtMessage, FpsCounter, ButtonFeedback
   Data/          GameSettings.asset, een GhostData per spook
   Prefabs/       Player (de VR-speler), Zaklamp, Spookval (nu nog Spookval_Placeholder), Spoken, Props, Deuren, UI-panelen (InfoPanel, ComfortPanel)
