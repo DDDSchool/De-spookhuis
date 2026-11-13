@@ -14,17 +14,19 @@ Assets/_Project/
     Test/        Testscenes T00–T13 per VR-techniek (zie TEST_SCENES.md), niet in de releasebuild
   Scripts/
     Core/        GameManager, GameSettings, FearMeter
-    Player/      Player, Flashlight, GhostTrap, Belt, HapticsManager
+    Player/      ComfortSettings, Flashlight, GhostTrap, Belt, HapticsManager
     Ghosts/      Ghost, GhostData, HidingSpot
     Puzzles/     Puzzle (basis), BringPuzzle, OpenRemovePuzzle, TogglePuzzle, GiveZone
     World/       Room, Door, Interactable, LightSwitch (Daniël)
-    UI/          Menu's, Watch, ThoughtBubble, CaughtMessage
+    UI/          Menu's, ComfortMenu, Watch, ThoughtBubble, CaughtMessage
   Data/          GameSettings.asset, een GhostData per spook
-  Prefabs/       Spoken, Props, Deuren, UI-panelen, Zaklamp, Spookval
+  Prefabs/       Player (de VR-speler), Spoken, Props, Deuren, UI-panelen (InfoPanel, ComfortPanel), Zaklamp, Spookval
   Art/           Models, Materials, Textures, Palette
   Audio/         Roep per spook, Ambient per kamer, SFX, UI
   VFX/           Zuig-effect, Gevangen!, Zwarte deur (Viktor)
 ```
+
+De VR-speler komt uit de XRI Starter Assets (in `Assets/Samples/XR Interaction Toolkit/3.3.2/`; daar niets aan veranderen). `Prefabs/Player.prefab` is een variant van `XR Origin (XR Rig)` met het vignet en `ComfortSettings` erbij. Wil je de speler aanpassen, doe het dan in die variant, niet in het sample.
 
 ## 2. Hoe de onderdelen samenwerken
 
@@ -52,6 +54,9 @@ In woorden: de speler richt de **zaklamp** op een **spook** en houdt de **spookv
 | --- | --- | --- | --- |
 | Spelstand, win en verlies | `GameManager` | leeg object in elke scene | technicus |
 | Alle instelbare getallen | `GameSettings` | `Data/GameSettings.asset` | ontwerper |
+| VR-speler (teleport, snap turn, vloeiend lopen, vignet) | `ComfortSettings` op de `Player` | `Prefabs/Player.prefab` | technicus |
+| Comfort-schakelaars | `ComfortMenu` | prefab `UI/ComfortPanel` | technicus + artist |
+| Uitlegpaneel van een testscene | (geen script; tekst in de prefab) | prefab `UI/InfoPanel` | iedereen |
 | Moed-meter | `FearMeter` | op de zaklamp-prefab | technicus |
 | Zaklamp en lichtbundel | `Flashlight` | prefab `Zaklamp` | technicus + artist |
 | Spookval en "Gevangen!" | `GhostTrap` | prefab `Spookval` | technicus |
