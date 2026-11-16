@@ -165,8 +165,8 @@ Startmenu (Spelen, Comfort-instellingen, Stoppen), pauzemenu (hervatten, instell
 
 - **Must:** 2 kamers (woonkamer, slaapkamer) + gang, 4 spoken met puzzel, zaklamp, spookval, riem, meter, horloge met haptiek, spatial audio, pikzwarte deuren, menu's en eindscherm, alle VR-basis, comfort.
 - **Should:** gang als hub met schakelaar, tweehands-richten, weggegooide voorwerpen die terugkomen, spanning die oploopt, Play-Expo-vriendelijk starten.
-- **Could (pas na de vertical slice):** zolder met De Bewoner, Rommelaar, zaklamp-reacties per spooktype, moeilijkheidsgraden, uv-lamp, stem-nadoend spook.
-- **Won't:** multiplayer, jumpscares, geweld, PC-versie, savegames (de voortgang opslaan; comfort-instellingen onthouden mag wel), meer kamers dan woonkamer, slaapkamer, gang en (als Could) de zolder.
+- **Could (pas na de vertical slice):** zolder met De Bewoner, Rommelaar, zaklamp-reacties per spooktype, moeilijkheidsgraden, uv-lamp, stem-nadoend spook, multiplayer (besloten door het team op 16 nov; kaart S35).
+- **Won't:** jumpscares, geweld, PC-versie, savegames (de voortgang opslaan; comfort-instellingen onthouden mag wel), meer kamers dan woonkamer, slaapkamer, gang en (als Could) de zolder.
 
 Eerst álle Musts, dan Shoulds; een Could pas als alle Musts én Shoulds af zijn.
 
