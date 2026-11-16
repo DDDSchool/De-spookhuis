@@ -125,6 +125,7 @@ Momentopname van https://trello.com/b/AK7eTg6w/spookhuis-p2 (stand 13 nov 2026).
 - [ ] **S32** [C] Puzzle De Bewoner (foto + kaars)
 - [ ] **S33** [C] Zolder-kamer logica + zolderdeur
 - [ ] **S34** [C] Zaklamp-reacties per spooktype
+- [ ] **S35** [C] Multiplayer-integratie (op Trello: "Multiplayer intigration"; pas na alle Musts en Shoulds, door de scripters)
 
 ## Testscenes (nieuw, prioriteit Should; zie `TEST_SCENES.md`)
 

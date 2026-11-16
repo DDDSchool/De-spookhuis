@@ -55,7 +55,7 @@ Doel: woonkamer, gang en slaapkamer met vier spoken, alles afgewerkt.
 | 7 t/m 13 jan | alleen polish: VFX en SFX, balans, bugs, laadtijden, playtests, definitieve build |
 | 14 jan | test op een schone Quest en backup van het project |
 
-Could (alleen na alle Musts en Shoulds, vóór de freeze): zolder, Rommelaar, De Bewoner, zaklamp-reacties, moeilijkheidsgraden.
+Could (alleen na alle Musts en Shoulds, vóór de freeze): zolder, Rommelaar, De Bewoner, zaklamp-reacties, moeilijkheidsgraden, multiplayer.
 
 Klaar-criteria: alle Musts klaar en de gang met beide kamers speelt van begin tot eind; vier mensen buiten het team spelen het uit zonder hulp; 72 fps en geen crash in 20 minuten; de game start direct na het opstarten van de bril.
 
