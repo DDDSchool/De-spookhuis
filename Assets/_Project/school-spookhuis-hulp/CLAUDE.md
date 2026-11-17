@@ -1,6 +1,6 @@
 # CLAUDE.md – Kamer vol spoken
 
-VR-game voor de Meta Quest 3 (standalone), gemaakt in Unity 6.3 door een schoolgroep (IDD, Groep 4). Alle documenten hieronder staan in `Assets/school-spookhuis-hulp/`. Lees eerst:
+VR-game voor de Meta Quest 3 (standalone), gemaakt in Unity 6.3 door een schoolgroep (IDD, Groep 4). Alle documenten hieronder staan in `Assets/_Project/school-spookhuis-hulp/`. Lees eerst:
 
 1. `GAME_DESIGN.md` – wat we bouwen (kernloop, spoken, systemen, startwaarden, klassen).
 2. `HOW_IT_WORKS.md` – waar alles in het project staat en hoe je iets verandert (houd dit bestand bij als de structuur verandert).
