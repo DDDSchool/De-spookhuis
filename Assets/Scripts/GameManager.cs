@@ -2,6 +2,14 @@ using UnityEngine;
 
 public static class GameManager
 {
+    public enum roomTypes
+    {
+        hallway,
+        livingRoom,
+        kitchen,
+        attic
+    }
+
     public static RoomManager currentRoom;
     public static Player player; //to instaly get plr
 
@@ -10,6 +18,18 @@ public static class GameManager
     {
         
     }
+
+    #region Game genaration
+    static public void GenarateNewGame()
+    {
+        
+    }
+
+    static void GenarateGhost()
+    {
+        
+    }
+    #endregion
 
     static public void SwitchRoom(RoomManager target)
     {
