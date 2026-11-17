@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GLTFast;
 using UnityEngine;
 using UnityEngine.XR;
+using DG.Tweening;
 
 public static class GameManager
 {
@@ -25,16 +25,20 @@ public static class GameManager
         Bewoner
     }
 
-    public static GameManagerConfig config = Resources.Load<GameManagerConfig>("GameManagerConfig");
+    //objects
+    public static Player player; //to instaly get plr
     public static RoomManager currentRoom;
+    public static CanvasGroup roomLoadingGUIGroup;
+
+    public static GameManagerConfig config = Resources.Load<GameManagerConfig>("GameManagerConfig");
     public static int totaleGhostCaught = 0;
+    public static bool switching = false; //soon enuum of it when pause or more rule
     public static Dictionary<RoomTypes, List<GhostType>> ghostInRooms = new();
     public static List<RoomTypes> spawnableGhostRoom = new(){
         RoomTypes.livingRoom,
         RoomTypes.kitchen,
         RoomTypes.attic
     };
-    public static Player player; //to instaly get plr
 
     [RuntimeInitializeOnLoadMethod]
     static void Init()
@@ -43,6 +47,7 @@ public static class GameManager
         #if UNITY_EDITOR
         if (XRSettings.loadedDeviceName == "") AddStaticObject(config.xrSimulator);
         #endif
+        roomLoadingGUIGroup = AddStaticObject(config.roomLoadingScreen).GetComponent<CanvasGroup>();
 
         Debug.LogWarning("Testing mode btw");
         GenarateNewGame();
@@ -108,14 +113,24 @@ public static class GameManager
 
     static public void SwitchRoom(RoomManager target)
     {
-        //fade out
+        if (switching) return;
+        switching = true;
 
-        //soon less laggy with deleting and adding by doing one on one
-        currentRoom.gameObject.SetActive(false);
-        currentRoom = target;
-        target.gameObject.SetActive(true);
+        //fade in
+        DOTween.To(() => roomLoadingGUIGroup.alpha, x => roomLoadingGUIGroup.alpha = x,
+        1, config.roomSwitchingDur)
+         .OnComplete(() =>
+         {
+             //soon less laggy with deleting and adding by doing one on one
+            currentRoom.gameObject.SetActive(false);
+            currentRoom = target;
+            target.gameObject.SetActive(true);
 
-        player.transform.position = currentRoom.spawn.position;
+            player.transform.position = currentRoom.spawn.position;
+            DOTween.To(() => roomLoadingGUIGroup.alpha, x => roomLoadingGUIGroup.alpha = x,
+            0, config.roomSwitchingDur)
+            .OnComplete(() => switching = false);
+         });
     }
 
     #region Helper function
@@ -134,10 +149,11 @@ public static class GameManager
         totaleGhostCaught += 1;
     }
 
-    static void AddStaticObject(GameObject target)
+    static GameObject AddStaticObject(GameObject target)
     {
         GameObject newObject = GameObject.Instantiate(target);
         GameObject.DontDestroyOnLoad(newObject);
+        return newObject;
     }
     #endregion
 }
