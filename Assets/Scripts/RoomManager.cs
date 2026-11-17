@@ -17,6 +17,7 @@ public class RoomManager : MonoBehaviour
     #region Visual
     void OnDrawGizmos()
     {
+        if (!startingRoom) return;
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position, new Vector3(5, 5, 5)); //soon room size
         Gizmos.color = Color.clear;
