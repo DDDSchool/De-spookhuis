@@ -1,11 +1,15 @@
 using UnityEngine;
 
+//shortcut
+using RoomType = GameManager.RoomTypes;
+
 public class RoomManager : MonoBehaviour
 {
     public Transform spawn; //where the player going to spawn when switchen to this room
+    public RoomType roomType;
     [SerializeField] [Tooltip("if this is where u start")] private bool startingRoom = false;
     
-    [HideInInspector] public int totaleGhost;
+    [HideInInspector] public int ghostCaught = 0;
 
     void Awake()
     {

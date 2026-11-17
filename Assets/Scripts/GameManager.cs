@@ -27,6 +27,7 @@ public static class GameManager
 
     public static GameManagerConfig config = Resources.Load<GameManagerConfig>("GameManagerConfig");
     public static RoomManager currentRoom;
+    public static int totaleGhostCaught = 0;
     public static Dictionary<RoomTypes, List<GhostType>> ghostInRooms = new();
     public static List<RoomTypes> spawnableGhostRoom = new(){
         RoomTypes.livingRoom,
@@ -120,7 +121,17 @@ public static class GameManager
     #region Helper function
     static public bool AllGhostInRoomAreCatch()
     {
-        return true;
+        if (!currentRoom) {Debug.LogError("no starting room ig, or current room"); return false;}
+        if (!spawnableGhostRoom.Contains(currentRoom.roomType)) return true;
+        
+        bool succes = ghostInRooms[currentRoom.roomType].Count == currentRoom.ghostCaught;
+        return succes;
+    }
+
+    static public void CaughtGhost() //mabye need ghosttype
+    {
+        currentRoom.ghostCaught += 1;
+        totaleGhostCaught += 1;
     }
 
     static void AddStaticObject(GameObject target)

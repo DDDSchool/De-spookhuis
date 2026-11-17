@@ -3,6 +3,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class InteractableTrigger : MonoBehaviour
 {
+    protected Outline outline;
+
+    protected virtual void Start()
+    {
+        outline = GetComponent<Outline>();
+        outline.enabled = false;
+    }
+
     public virtual void OnHover(HoverEnterEventArgs args)
     {
         OutLine(true);
@@ -20,9 +28,8 @@ public class InteractableTrigger : MonoBehaviour
         //print("trigger");
     }
 
-    protected void OutLine(bool state)
+    protected virtual void OutLine(bool state)
     {
-        //for now to test
-        GetComponent<Outline>().enabled = state;
+        outline.enabled = state;
     }
 }
