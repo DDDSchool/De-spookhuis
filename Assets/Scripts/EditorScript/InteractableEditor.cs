@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEditor.Events;
 
-[CustomEditor(typeof(InteractableTrigger))]
+[CustomEditor(typeof(InteractableTrigger), true)]
 public class InteractableEditor: Editor
 {
     public override void OnInspectorGUI()

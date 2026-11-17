@@ -20,7 +20,7 @@ public class InteractableTrigger : MonoBehaviour
         //print("trigger");
     }
 
-    void OutLine(bool state)
+    protected void OutLine(bool state)
     {
         //for now to test
         GetComponent<Outline>().enabled = state;
