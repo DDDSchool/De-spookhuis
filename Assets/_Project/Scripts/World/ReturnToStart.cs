@@ -14,6 +14,7 @@ public class ReturnToStart : MonoBehaviour
     Vector3 startPosition;
     Quaternion startRotation;
     float timeAway;
+    [SerializeField] Transform home;
 
     void Awake()
     {
@@ -25,8 +26,17 @@ public class ReturnToStart : MonoBehaviour
 
     void Update()
     {
+        bool moved;
         float awayDistance = settings.returnMovedDistance;
-        bool moved = (transform.position - startPosition).sqrMagnitude > awayDistance * awayDistance;
+        if (home == null)
+        {
+            moved = (transform.position - startPosition).sqrMagnitude > awayDistance * awayDistance;
+        }
+        else
+        {
+            moved = (transform.position - home.position).sqrMagnitude > awayDistance * awayDistance;
+        }
+        
         if (grab.isSelected || !moved)
         {
             timeAway = 0f;
@@ -42,8 +52,16 @@ public class ReturnToStart : MonoBehaviour
         timeAway = 0f;
         body.linearVelocity = Vector3.zero;
         body.angularVelocity = Vector3.zero;
-        body.position = startPosition;
-        body.rotation = startRotation;
-        transform.SetPositionAndRotation(startPosition, startRotation);
+
+        if (home == null)
+        {
+            body.position = startPosition;
+            body.rotation = startRotation;
+            transform.SetPositionAndRotation(startPosition, startRotation);
+            return;
+        }
+        body.position = home.position;
+        body.rotation = home.rotation;
+        transform.SetPositionAndRotation(home.position, home.rotation);
     }
 }

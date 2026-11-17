@@ -16,3 +16,17 @@ MonoBehaviour:
   vignetteAtStart: 1
   moveSpeed: 2.5
   snapTurnDegrees: 45
+  seatedExtraHeight: 0.4
+  volumeCap: 0.8
+  startVolume: 0.7
+  returnDelay: 1
+  returnMovedDistance: 0.1
+  beamAngle: 25
+  beamRange: 6
+  nearbyRadius: 3
+  nearbyMaxStrength: 0.5
+  nearbyPulseInterval: 0.25
+  pullMaxDistance: 0.6
+  pullMaxStrength: 1
+  pullPulseInterval: 0.1
+  pullReturnSpeed: 1.5
