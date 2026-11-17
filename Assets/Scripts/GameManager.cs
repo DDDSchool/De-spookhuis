@@ -40,7 +40,7 @@ public static class GameManager
     {
         //load in objects
         #if UNITY_EDITOR
-        if (!XRSettings.isDeviceActive) AddStaticObject(config.xrSimulator);
+        if (XRSettings.loadedDeviceName == "") AddStaticObject(config.xrSimulator);
         #endif
 
         Debug.LogWarning("Testing mode btw");
