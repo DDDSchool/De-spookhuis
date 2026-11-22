@@ -122,9 +122,9 @@ public static class GameManager
          .OnComplete(() =>
          {
              //soon less laggy with deleting and adding by doing one on one
-            currentRoom.gameObject.SetActive(false);
+            currentRoom.Load(false);
             currentRoom = target;
-            target.gameObject.SetActive(true);
+            target.Load(true);
 
             player.transform.position = currentRoom.spawn.position;
             DOTween.To(() => roomLoadingGUIGroup.alpha, x => roomLoadingGUIGroup.alpha = x,
@@ -147,6 +147,15 @@ public static class GameManager
     {
         currentRoom.ghostCaught += 1;
         totaleGhostCaught += 1;
+    }
+
+    static public List<GhostType> GetAvibleGhostOutRoom()
+    {
+        if (!currentRoom) {Debug.LogError("no starting room ig, or current room"); return null;}
+        if (!spawnableGhostRoom.Contains(currentRoom.roomType)) return new(); //like looping through it nothing happing
+
+        List<GhostType> ghostTypes = ghostInRooms[currentRoom.roomType];
+        return ghostTypes;
     }
 
     static GameObject AddStaticObject(GameObject target)

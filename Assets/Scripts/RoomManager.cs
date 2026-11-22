@@ -6,6 +6,7 @@ using RoomType = GameManager.RoomTypes;
 public class RoomManager : MonoBehaviour
 {
     public Transform spawn; //where the player going to spawn when switchen to this room
+    [Tooltip("where the roomFolder is of that room *in scene")] public GameObject roomFolder;
     public RoomType roomType;
     [SerializeField] [Tooltip("if this is where u start")] private bool startingRoom = false;
     
@@ -14,8 +15,13 @@ public class RoomManager : MonoBehaviour
     void Awake()
     {
         //waring when enable this again it do it again but on other side the current room become this so don't matter for now
-        if (!startingRoom) return;
+        if (!startingRoom) {Load(false); return;}
         GameManager.currentRoom = this;
+    }
+
+    public void Load(bool state)
+    {
+        roomFolder.SetActive(state);
     }
 
     #region Visual
