@@ -11,6 +11,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] [Tooltip("if this is where u start")] private bool startingRoom = false;
     
     [HideInInspector] public int ghostCaught = 0;
+    [HideInInspector] public bool lightState;
 
     void Awake()
     {
