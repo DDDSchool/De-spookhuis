@@ -16,7 +16,7 @@ public class ReturnToStart : MonoBehaviour
     Vector3 startPosition;
     Quaternion startRotation;
     float timeAway;
-    [SerializeField] Transform home;
+    public Transform home;
 
     void Awake()
     {

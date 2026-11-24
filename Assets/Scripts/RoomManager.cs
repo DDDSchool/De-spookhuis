@@ -6,6 +6,7 @@ public class RoomManager : MonoBehaviour
     public Transform spawn; //where the player going to spawn when switchen to this room
     [Tooltip("where the roomFolder is of that room *in scene")] public GameObject roomFolder;
     [SerializeField] private Transform spawnable;
+    public List<Transform> StorageSpawnable; //mabye need a way to reset or reloading scene
 
     [Space(10)]
     public RoomTypes roomType;
@@ -80,7 +81,14 @@ public class RoomManager : MonoBehaviour
         Gizmos.color = Color.lightYellow;
         foreach (Transform child in spawnable)
         {
-            Gizmos.DrawLine(child.position, child.position + Vector3.up * spawnableVisualeHeight);
+            Gizmos.DrawLine(child.position, child.position + child.up * spawnableVisualeHeight);
+            Gizmos.DrawLine(child.position, child.position + child.forward * spawnableVisualeForward);
+        }
+        
+        if (StorageSpawnable.Count == 0) {Gizmos.color = Color.clear; return;}
+        foreach (Transform child in StorageSpawnable)
+        {
+            Gizmos.DrawLine(child.position, child.position + child.up * spawnableVisualeHeight);
             Gizmos.DrawLine(child.position, child.position + child.forward * spawnableVisualeForward);
         }
         Gizmos.color = Color.clear;

@@ -178,7 +178,7 @@ public static class GameManager
 
     public static T GetRandomValueOutOfList<T>(List<T> list)
     {
-        if (list.Count == 0) return list[0];
+        if (list.Count == 0) {Debug.LogError($"list of type: {typeof(T).Name} is out of range"); return default;}
         T randomValue = list[(int)UnityEngine.Random.Range(0, list.Count)];
 
         return randomValue;

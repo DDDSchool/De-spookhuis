@@ -10,10 +10,12 @@ public class PuzzleBoe: BasicGhostPuzzleKit
         print("creating");
         base.OnCreate(room);
 
-        Transform spot = GameManager.GetRandomValueOutOfList<Transform>(room.allSpawnableLocation);
-        room.allSpawnableLocation.Remove(spot);
+        Transform spot = GameManager.GetRandomValueOutOfList<Transform>(room.StorageSpawnable);
+        room.StorageSpawnable.Remove(spot);
 
-        teddybear = Instantiate(teddybearPrehabs, spot.position, spot.rotation, room.roomFolder.transform).transform;
+        teddybear = Instantiate(teddybearPrehabs, spot.position, spot.rotation, spot.parent).transform;
+        ReturnToStart returnToStart = teddybear.GetComponent<ReturnToStart>();
+        returnToStart.home = spot;
     }
 
     #region Give Zone
