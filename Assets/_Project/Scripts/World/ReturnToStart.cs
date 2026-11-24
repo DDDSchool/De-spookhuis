@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -9,6 +10,7 @@ public class ReturnToStart : MonoBehaviour
 {
     [SerializeField] GameSettings settings;
 
+    [HideInInspector] public Action OnHome;
     XRGrabInteractable grab;
     Rigidbody body;
     Vector3 startPosition;
@@ -52,6 +54,8 @@ public class ReturnToStart : MonoBehaviour
         timeAway = 0f;
         body.linearVelocity = Vector3.zero;
         body.angularVelocity = Vector3.zero;
+
+        OnHome?.Invoke();
 
         if (home == null)
         {

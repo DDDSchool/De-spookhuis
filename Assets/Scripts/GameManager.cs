@@ -5,25 +5,26 @@ using UnityEngine;
 using UnityEngine.XR;
 using DG.Tweening;
 
+public enum RoomTypes
+{
+    hallway,
+    livingRoom,
+    kitchen,
+    attic
+}
+
+public enum GhostType
+{
+    Boe,
+    Giechel,
+    Laken,
+    Fluisteraar,
+    Rommernaar,
+    Bewoner
+}
+
 public static class GameManager
 {
-    public enum RoomTypes
-    {
-        hallway,
-        livingRoom,
-        kitchen,
-        attic
-    }
-
-    public enum GhostType
-    {
-        Boe,
-        Giechel,
-        Laken,
-        Fluisteraar,
-        Rommernaar,
-        Bewoner
-    }
 
     //objects
     public static Player player; //to instaly get plr
@@ -33,7 +34,9 @@ public static class GameManager
     public static GameManagerConfig config = Resources.Load<GameManagerConfig>("GameManagerConfig");
     public static int totaleGhostCaught = 0;
     public static bool switching = false; //soon enuum of it when pause or more rule
+    public static Dictionary<GhostType, GameObject> ghostModels = new();
     public static Dictionary<RoomTypes, List<GhostType>> ghostInRooms = new();
+    public static Action initRoomGenaration;
     public static List<RoomTypes> spawnableGhostRoom = new(){
         RoomTypes.livingRoom,
         RoomTypes.kitchen,
@@ -49,6 +52,12 @@ public static class GameManager
         #endif
         roomLoadingGUIGroup = AddStaticObject(config.roomLoadingScreen).GetComponent<CanvasGroup>();
 
+        //load in dictionary
+        foreach (GameManagerConfig.GhostInfo info in config.ghostInfo)
+        {
+            ghostModels.Add(info.ghostType, info.ghost);
+        }
+
         Debug.LogWarning("Testing mode btw");
         GenarateNewGame();
     }
@@ -57,6 +66,7 @@ public static class GameManager
     static public void GenarateNewGame()
     {
         GenarateGhost();
+        initRoomGenaration?.Invoke();
 
         //need a reseter :3
     }
@@ -78,6 +88,7 @@ public static class GameManager
 
         //here the ghost that have always this spawn
         AddGhostToRoom(RoomTypes.attic, GhostType.Bewoner);
+        AddGhostToRoom(RoomTypes.livingRoom, GhostType.Boe);
 
         //loop all and add random ghost
         //DDD check soon or it is really rng ok
@@ -85,7 +96,7 @@ public static class GameManager
         {
             while (ghostInRooms[roomType].Count != 2)
             {
-                GhostType randomGhost = remainingGhost[(int)UnityEngine.Random.Range(0, remainingGhost.Count)];
+                GhostType randomGhost = GetRandomValueOutOfList<GhostType>(remainingGhost);
                 AddGhostToRoom(roomType, randomGhost);
             }
         }
@@ -163,6 +174,14 @@ public static class GameManager
         GameObject newObject = GameObject.Instantiate(target);
         GameObject.DontDestroyOnLoad(newObject);
         return newObject;
+    }
+
+    public static T GetRandomValueOutOfList<T>(List<T> list)
+    {
+        if (list.Count == 0) return list[0];
+        T randomValue = list[(int)UnityEngine.Random.Range(0, list.Count)];
+
+        return randomValue;
     }
     #endregion
 }

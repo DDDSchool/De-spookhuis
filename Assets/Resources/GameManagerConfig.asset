@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerConfig
   xrSimulator: {fileID: 8135023674665499069, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
   roomLoadingScreen: {fileID: 1976006392513508931, guid: 317305d7d9ac603488b6b45a64ce11d4, type: 3}
+  ghostInfo:
+  - ghostType: 0
+    ghost: {fileID: 4408454588423161057, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
   roomSwitchingDur: 0.5
