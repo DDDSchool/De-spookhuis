@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(Outline))]
 public class InteractableTrigger : MonoBehaviour
 {
     protected Outline outline;
