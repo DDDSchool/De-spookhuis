@@ -362,8 +362,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
   spawn: {fileID: 369242505}
+  roomFolder: {fileID: 0}
+  spawnable: {fileID: 0}
+  StorageSpawnable: []
+  roomType: 0
   startingRoom: 0
-  totaleGhost: 0
+  allSpawnableLocation: []
+  ghostCaught: 0
+  lightState: 0
 --- !u!1001 &594288078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -510,8 +516,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
   spawn: {fileID: 0}
+  roomFolder: {fileID: 0}
+  spawnable: {fileID: 0}
+  StorageSpawnable: []
+  roomType: 0
   startingRoom: 0
-  totaleGhost: 0
+  allSpawnableLocation: []
+  ghostCaught: 0
+  lightState: 0
 --- !u!1001 &748099059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -691,6 +703,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zaklamp
       objectReference: {fileID: 0}
+    - target: {fileID: 2806592610732102670, guid: 06f75c5628ae98840ae60f4ebc9526a6, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1165130851}
     - target: {fileID: 3423889251728176101, guid: 06f75c5628ae98840ae60f4ebc9526a6, type: 3}
       propertyPath: home
       value: 
@@ -852,6 +868,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162894642}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1165130851 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+  m_PrefabInstance: {fileID: 1283371113}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1283371113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.119
+      objectReference: {fileID: 0}
+    - target: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.278
+      objectReference: {fileID: 0}
+    - target: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 819124808009596007, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408454588423161057, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+      propertyPath: m_Name
+      value: ghost
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
 --- !u!114 &1340514865 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6858680815395971709, guid: 06f75c5628ae98840ae60f4ebc9526a6, type: 3}
@@ -948,8 +1026,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomManager
   spawn: {fileID: 0}
+  roomFolder: {fileID: 0}
+  spawnable: {fileID: 0}
+  StorageSpawnable: []
+  roomType: 0
   startingRoom: 1
-  totaleGhost: 0
+  allSpawnableLocation: []
+  ghostCaught: 0
+  lightState: 0
 --- !u!1 &1463389223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,3 +1668,4 @@ SceneRoots:
   - {fileID: 628022758}
   - {fileID: 748099059}
   - {fileID: 594288078}
+  - {fileID: 1283371113}

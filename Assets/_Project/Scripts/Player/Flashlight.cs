@@ -10,6 +10,7 @@ public class Flashlight : MonoBehaviour
     [SerializeField] GameSettings settings;
     [SerializeField] Light beam;
     [SerializeField] bool startOn;
+    [SerializeField] Transform target;
 
     XRGrabInteractable grab;
 
@@ -21,6 +22,15 @@ public class Flashlight : MonoBehaviour
         beam.spotAngle = settings.beamAngle;
         beam.range = settings.beamRange;
         SetOn(startOn);
+    }
+    void Update()
+    {
+        if (IsOn)
+        {
+            Vector3 toGhost = target.position - beam.transform.position;
+            float angle = Vector3.Angle(beam.transform.forward, toGhost);
+            Debug.Log($"Angle to ghost: {angle}");
+        }
     }
 
     // "activated" gaat af als je de trekker indrukt terwijl je de zaklamp vasthoudt.
