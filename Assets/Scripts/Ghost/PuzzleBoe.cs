@@ -13,6 +13,7 @@ public class PuzzleBoe: BasicGhostPuzzleKit
         Transform spot = GameManager.GetRandomValueOutOfList<Transform>(room.StorageSpawnable);
         room.StorageSpawnable.Remove(spot);
 
+        if (spot == null) {Debug.LogError("no storage left"); return;}
         teddybear = Instantiate(teddybearPrehabs, spot.position, spot.rotation, spot.parent).transform;
         ReturnToStart returnToStart = teddybear.GetComponent<ReturnToStart>();
         returnToStart.home = spot;

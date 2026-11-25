@@ -17,4 +17,14 @@ MonoBehaviour:
   ghostInfo:
   - ghostType: 0
     ghost: {fileID: 4408454588423161057, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+  - ghostType: 1
+    ghost: {fileID: 4408454588423161057, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+  - ghostType: 2
+    ghost: {fileID: 4408454588423161057, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+  - ghostType: 3
+    ghost: {fileID: 4408454588423161057, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+  - ghostType: 4
+    ghost: {fileID: 4408454588423161057, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
+  - ghostType: 5
+    ghost: {fileID: 4408454588423161057, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
   roomSwitchingDur: 0.5
