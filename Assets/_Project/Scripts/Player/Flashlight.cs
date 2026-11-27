@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AdaptivePerformance;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -29,8 +30,23 @@ public class Flashlight : MonoBehaviour
         {
             Vector3 toGhost = target.position - beam.transform.position;
             float angle = Vector3.Angle(beam.transform.forward, toGhost);
-            Debug.Log($"Angle to ghost: {angle}");
-        }
+
+            float distance = toGhost.magnitude;
+
+            bool inBeam = (angle < settings.beamAngle / 2) && (distance < settings.beamRange);
+
+            if (inBeam)
+            {
+                RaycastHit hit;
+                
+
+                if (Physics.Raycast(beam.transform.position, toGhost, out hit, distance) && hit.transform.IsChildOf(target))
+                {
+                    Debug.Log("Hit");
+                }
+                
+            }
+        }   
     }
 
     // "activated" gaat af als je de trekker indrukt terwijl je de zaklamp vasthoudt.
