@@ -37,6 +37,7 @@ public static class GameManager
     public static Dictionary<GhostType, GameObject> ghostModels = new();
     public static Dictionary<RoomTypes, List<GhostType>> ghostInRooms = new();
     public static Action initRoomGenaration;
+    public static Action onGhostCaught;
     public static List<RoomTypes> spawnableGhostRoom = new(){
         RoomTypes.livingRoom,
         RoomTypes.kitchen,
@@ -158,6 +159,7 @@ public static class GameManager
     {
         currentRoom.ghostCaught += 1;
         totaleGhostCaught += 1;
+        onGhostCaught?.Invoke();
     }
 
     static public List<GhostType> GetAvibleGhostOutRoom()
