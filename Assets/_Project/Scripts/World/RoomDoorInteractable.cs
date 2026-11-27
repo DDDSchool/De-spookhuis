@@ -6,7 +6,8 @@ public class RoomDoorInteractable: InteractableTrigger
     [SerializeField] private RoomManager roomTarget;
 
     // Op slot als je huidige kamer nog spoken heeft, of als de kamer erachter dicht is (prototype).
-    private bool isLocked => !GameManager.AllGhostInRoomAreCatch() || (roomTarget && roomTarget.closed);
+    // Na het einde (gewonnen of game-over) werken de deuren niet meer, dus ook rood.
+    private bool isLocked => GameManager.gameOver || !GameManager.AllGhostInRoomAreCatch() || (roomTarget && roomTarget.closed);
 
     protected override void Start()
     {

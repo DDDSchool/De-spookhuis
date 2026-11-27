@@ -31,8 +31,8 @@ public class PuzzleBoe: BasicGhostPuzzleKit
 
     void TryGive(Collider other)
     {
-        // Geen beer (meer)? Dan niets doen, anders volgt er een fout.
-        if (!teddybear) return;
+        // Geen beer (meer)? Dan niets doen, anders volgt er een fout. Na game-over vang je niets meer.
+        if (!teddybear || GameManager.gameOver) return;
         if (!other.transform.IsChildOf(teddybear)) return;
         if (teddybearGrab && !teddybearGrab.isSelected) return;
 

@@ -2,7 +2,7 @@
 
 Volgorde van het werk. Het ontwerp staat in `GAME_DESIGN.md`; hier staat wanneer wat af moet zijn. Team (Groep 4): Raji Bozdag en Daan Pilage (ontwerpers), Daniël Eijkelenkamp en Viktor Eshuis (technici). Trello: https://trello.com/b/AK7eTg6w/spookhuis-p2 · Code: https://github.com/DDDSchool/De-spookhuis (Unity 6.3).
 
-**Rollen (sinds 27 nov, zie ook `CLAUDE.md`):** Daniël en Viktor werken elke week de Trello-kaarten af (scripts, VFX, backend). Raji maakt de modellen en assets en doet samen met Claude Code fixes en "longshots": een grotere sprong als de planning dat vraagt, zoals het werkende prototype van 27 nov.
+**Taken:** alle taken staan op Trello, en daar spreek je ook af wie wat oppakt; dit plan wijst niemand iets toe. Claude Code doet samen met Raji fixes en "longshots" (zie `CLAUDE.md`), zoals het werkende prototype van 27 nov.
 
 ## Stand van zaken (27 nov)
 
@@ -43,11 +43,11 @@ Doel: de woonkamer is af op eindkwaliteit, met Boe en Giechel en alle systemen.
 
 **Pathway in deze fase:** missie 3 (comfort, optimalisatie, lighting, bouwen en delen) past bij het polijsten en de eerste echte build. Voorstel: af vóór de vertical slice (wo 16 dec); vraag de docent naar de echte deadline.
 
-| Periode | Artist/ontwerper | Technicus |
-| --- | --- | --- |
-| 26 nov t/m 2 dec | woonkamer-set, props, palet, materialen (modellen klaar op 27 nov) | placeholders vervangen door echte modellen (longshot Raji + Claude Code), puzzel Giechel (Trello, technici) |
-| 3 t/m 9 dec | spoken Boe en Giechel met animaties, zaklamp, spookval, riem, horloge | gedachtebel, geefzone, vang-feedback, trilling afstellen |
-| 10 t/m 16 dec | UI echt, zuig-effect, zwarte deur | gang en ruimtes laden, balans startwaarden, build en playtest |
+| Periode | Focus |
+| --- | --- |
+| 26 nov t/m 2 dec | woonkamer-set, props, palet, materialen (modellen klaar op 27 nov); placeholders vervangen door de echte modellen; puzzel Giechel |
+| 3 t/m 9 dec | spoken Boe en Giechel met animaties, zaklamp, spookval, riem, horloge; gedachtebel, geefzone, vang-feedback, trilling afstellen |
+| 10 t/m 16 dec | UI echt, zuig-effect, zwarte deur; gang en ruimtes laden, balans startwaarden, build en playtest |
 
 Klaar-criteria: iedereen heeft pathway missie 3 af (voorstel); alle Must-kaarten voor woonkamer, Boe, Giechel, spookval, riem en zwarte deur staan op Klaar; drie mensen buiten het team spelen de woonkamer uit zonder hulp; niets grijs of placeholder meer in de woonkamer; 72 fps. Daarna geen nieuwe features.
 
@@ -76,7 +76,7 @@ School vraagt dat we het [VR Development pathway van Unity Learn](https://learn.
 | **1 VR Basics:** 1.1 projectopzet, 1.2 locomotion, 1.3 grabbables, 1.4 sockets | **af vr 13 nov** (Prototype) | Projectopzet voor de Quest; teleport en snap turn; voorwerpen pakken, houden en gooien (5+ soorten); **sockets** voor de riem (zaklamp, spookval) en de geefzone |
 | **2 Events and Interactions:** 2.1 audio en haptics, 2.2 activation events, 2.3 near-far en ray interactors, 2.4 user interface | **af vr 13 nov** (Prototype) | Spatial audio en `HapticsManager`; **activation events** voor de zaklamp (trekker = aan, lichtbundel); ray en near-far voor deuren, lades en klikken op de zwarte deur; menu's en horloge als world-space UI |
 | **3 Ergonomics and Optimization:** 3.1 comfort en toegankelijkheid, 3.2 optimalisatie, 3.3 lighting, 3.4 building en sharing | MVP (26 nov t/m 16 dec) | Vignet, zittend/staand, comfort-instellingen; 72 fps met marge (ook Quest 3S); **baked licht** in de woonkamer; APK bouwen en laten testen |
-| **4 Custom VR Development:** eigen interactables scripten (scanner, ballonpomp), escape room (number pad, keycard reader, sliding door), project 3 "clone with a twist" | MVP en Polish (26 nov t/m 13 jan) | Eigen scripts zoals `LightSwitch` en `PuzzelGiechel` (Trello-kaarten van de technici), het **deurslot** (de keycard reader laat zien hoe een slot opengaat zodra aan een voorwaarde is voldaan) en de puzzels (escape-room-aanpak) |
+| **4 Custom VR Development:** eigen interactables scripten (scanner, ballonpomp), escape room (number pad, keycard reader, sliding door), project 3 "clone with a twist" | MVP en Polish (26 nov t/m 13 jan) | Eigen scripts zoals `LightSwitch` en `PuzzelGiechel`, het **deurslot** (de keycard reader laat zien hoe een slot opengaat zodra aan een voorwaarde is voldaan) en de puzzels (escape-room-aanpak) |
 
 **Deadlines:** missie 1 en 2 vr 13 nov (van school). Voor missie 3 is nog geen datum bekend; missie 4 is optioneel; het voorstel staat in de fases hierboven.
 
@@ -157,44 +157,7 @@ Let op: de les "Explore the sample scene" noemt XR Interaction Toolkit 3.5.x, on
 - Eén branch per taak; wat in de hoofdversie komt is eerst door een ander teamlid bekeken.
 - Elke week een build op de Quest 3.
 - Eerst alle Musts, dan Shoulds, dan Coulds. Speelbaar gaat voor mooi.
-- **Trello afvinken:** na elke taak zegt Claude Code welke kaarten klaar zijn en afgetekend kunnen worden (zie `CLAUDE.md`). Een mens controleert het en zet de kaart op Klaar.
-
-## Giechel en de lichtschakelaar (Trello, technici)
-
-Dit staat op Trello (kaart `S14 Puzzle Giechel`) en is werk van de technici. Claude Code bouwt het niet zelf, tenzij Raji erom vraagt als longshot. Wat er al is: het model van de schakelaar (`Prefabs/Props/Lightswitch`, Raji, 27 nov) en het script `PuzzelGiechel`, dat wacht tot `RoomManager.lightState` op aan gaat. Stappen:
-
-1. **LightSwitch:** schakelaar met XR Simple Interactable; Select Entered roept `Toggle()` aan die de lichten aan/uit zet en `RoomManager.lightState` bijwerkt.
-2. **PuzzelGiechel:** kind van `BasicGhostPuzzleKit`; meldt "opgelost" als het licht aan is.
-3. **Giechel:** in het donker verstopt en gesmoord geluid; bij licht aan komt hij tevoorschijn en lacht hij.
-4. **Test op de Quest;** Giechel blijft vangbaar als het licht weer uitgaat.
-
-Startscript voor de schakelaar:
-
-```csharp
-using UnityEngine;
-using UnityEngine.Events;
-
-public class LightSwitch : MonoBehaviour
-{
-    [SerializeField] Light[] lights;
-    [SerializeField] bool isOn;
-    public UnityEvent<bool> onChanged; // true = licht aan
-
-    void Start() => Apply();
-
-    public void Toggle()
-    {
-        isOn = !isOn;
-        Apply();
-    }
-
-    void Apply()
-    {
-        foreach (var l in lights) l.enabled = isOn;
-        onChanged?.Invoke(isOn);
-    }
-}
-```
+- **Trello afvinken:** na elke taak zegt Claude Code welke Trello-kaarten klaar zijn en afgetekend kunnen worden (zie `CLAUDE.md`). Een mens controleert het en zet de kaart op Klaar.
 
 ## Risico's
 

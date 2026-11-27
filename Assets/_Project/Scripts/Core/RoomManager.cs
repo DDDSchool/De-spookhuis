@@ -72,11 +72,13 @@ public class RoomManager : MonoBehaviour
                 allSpawnableLocation.Remove(spot);
                 newGhost.transform.position = spot.position;
             }
-            // Onder de kamermap, zodat het spook mee uitgaat als je de kamer verlaat.
-            newGhost.transform.SetParent(roomFolder.transform, true);
-
+            // Eerst de puzzel klaarzetten, terwijl het spook nog aan staat (een puzzel die een coroutine
+            // start, zoals Giechel, kan dat niet op een object dat uit staat).
             BasicGhostPuzzleKit ghostScript = newGhost.GetComponent<BasicGhostPuzzleKit>();
             ghostScript.OnCreate(this);
+
+            // Dan onder de kamermap, zodat het spook mee uitgaat als je de kamer verlaat.
+            newGhost.transform.SetParent(roomFolder.transform, true);
         }
     }
 

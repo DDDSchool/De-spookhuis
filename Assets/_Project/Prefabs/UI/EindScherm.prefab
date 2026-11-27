@@ -382,7 +382,7 @@ MonoBehaviour:
   message: {fileID: 6026127135707476349}
   retryButton: {fileID: 1533055710176643509}
   winTitle: Gevangen!
-  winMessage: Boe is gevangen. Het huis is weer een beetje minder eng.
+  winMessage: Je hebt alle spoken gevangen. Het huis is weer een beetje minder eng.
   loseTitle: Te bang!
   loseMessage: 'Het spook won deze keer. Probeer het nog eens: zoek de beer en geef
     hem aan het spook.'

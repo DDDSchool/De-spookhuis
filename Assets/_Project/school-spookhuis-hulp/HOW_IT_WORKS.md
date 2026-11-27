@@ -33,7 +33,7 @@ Assets/_Project/
     Materials/   Placeholder, Test
     UI/          Placeholder_Beer
   Audio/         Placeholder (later roep per spook, ambient per kamer, SFX, UI)
-  VFX/           (later: zuig-effect, Gevangen!, zwarte deur; Viktor)
+  VFX/           (later: zuig-effect, Gevangen!, zwarte deur)
   _Oud/          wat we niet meer gebruiken (template-resten, oude testscenes); niet in de build
   school-spookhuis-hulp/   deze documenten
 ```
@@ -66,32 +66,34 @@ In woorden: de speler richt de **zaklamp** op een **spook** en houdt de **spookv
 
 ## 3. Waar staat wat?
 
-| Onderdeel | Script | Waar zie je het in Unity | Wie past het meestal aan |
-| --- | --- | --- | --- |
-| Spelstand, win en verlies | `GameManager` | leeg object in elke scene | technicus |
-| Alle instelbare getallen | `GameSettings` | `Data/GameSettings.asset` | ontwerper |
-| VR-speler (teleport, snap turn, vloeiend lopen, vignet) | `ComfortSettings` op de `Player` | `Prefabs/Player.prefab` | technicus |
-| Comfort-schakelaars | `ComfortMenu` | prefab `UI/ComfortPanel` | technicus + artist |
-| Uitlegpaneel van een testscene | (geen script; tekst in de prefab) | prefab `UI/InfoPanel` | iedereen |
-| Moed-meter | `FearMeter` | op de zaklamp-prefab | technicus |
-| Zaklamp en lichtbundel | `Flashlight` (aan/uit met de trekker; spoken opsporen komt later) | prefab `Zaklamp` | technicus + artist |
-| Weggegooid voorwerp komt terug | `ReturnToStart` | op elk pakbaar voorwerp | technicus |
-| Iets aan/uit zetten (radio, lampje, lichten) | `Toggleable` | op het voorwerp; koppel een knop of activation event aan `Toggle` | technicus |
-| Trillen als iets dichtbij is | `NearbyHaptics` (via `HapticsManager`) | op het spook (nu: het groene spook in de testscene) | technicus |
-| Spookval en "Gevangen!" | `GhostTrap` | prefab `Spookval` | technicus |
-| Riem met holsters | `Belt` (met Socket Interactors) | aan de speler, op middelhoogte | technicus |
-| Spook | `Ghost` + `GhostData` | prefab per spook | ontwerper (data), technicus (gedrag) |
-| Verstopplek | `HidingSpot` | op kast, lade, bank, bed | ontwerper |
-| Puzzel | `BringPuzzle`, `OpenRemovePuzzle` of `TogglePuzzle` | op de props in de kamer | ontwerper + technicus |
-| Kamer | `Room` | root van elke kamer-scene | ontwerper |
-| Zwarte deur | `Door` | prefab `ZwarteDeur` | technicus + artist |
-| Trillingen | `HapticsManager` | op de `Player`-prefab | technicus |
-| Menu's, horloge, gedachtebel | scripts in `UI/` | world-space panelen | artist + technicus |
+| Onderdeel | Script | Waar zie je het in Unity |
+| --- | --- | --- |
+| Spelstand, win en verlies | `GameManager` | leeg object in elke scene |
+| Alle instelbare getallen | `GameSettings` | `Data/GameSettings.asset` |
+| VR-speler (teleport, snap turn, vloeiend lopen, vignet) | `ComfortSettings` op de `Player` | `Prefabs/Player.prefab` |
+| Comfort-schakelaars | `ComfortMenu` | prefab `UI/ComfortPanel` |
+| Uitlegpaneel van een testscene | (geen script; tekst in de prefab) | prefab `UI/InfoPanel` |
+| Moed-meter | `FearMeter` | op de zaklamp-prefab |
+| Zaklamp en lichtbundel | `Flashlight` (aan/uit met de trekker; spoken opsporen komt later) | prefab `Zaklamp` |
+| Weggegooid voorwerp komt terug | `ReturnToStart` | op elk pakbaar voorwerp |
+| Iets aan/uit zetten (radio, lampje, lichten) | `Toggleable` | op het voorwerp; koppel een knop of activation event aan `Toggle` |
+| Trillen als iets dichtbij is | `NearbyHaptics` (via `HapticsManager`) | op het spook (nu: het groene spook in de testscene) |
+| Spookval en "Gevangen!" | `GhostTrap` | prefab `Spookval` |
+| Riem met holsters | `Belt` (met Socket Interactors) | aan de speler, op middelhoogte |
+| Spook | `Ghost` + `GhostData` | prefab per spook |
+| Verstopplek | `HidingSpot` | op kast, lade, bank, bed |
+| Puzzel | `BringPuzzle`, `OpenRemovePuzzle` of `TogglePuzzle` | op de props in de kamer |
+| Kamer | `Room` | root van elke kamer-scene |
+| Zwarte deur | `Door` | prefab `ZwarteDeur` |
+| Trillingen | `HapticsManager` | op de `Player`-prefab |
+| Menu's, horloge, gedachtebel | scripts in `UI/` | world-space panelen |
+
+Wie wat oppakt, staat op Trello.
 
 ## 4. Zo verander je iets
 
 ### Een getal aanpassen (meter, vangtijd, bundelhoek, vluchtsnelheid, hint)
-Open `Data/GameSettings.asset` en pas het getal aan. Geen code nodig. Alle scripts lezen hun waarde hier; staat een getal ergens anders hard in de code, dan is dat een fout: laat het aan Claude Code of een technicus corrigeren.
+Open `Data/GameSettings.asset` en pas het getal aan. Geen code nodig. Alle scripts lezen hun waarde hier; staat een getal ergens anders hard in de code, dan is dat een fout: zet het op Trello.
 
 ### Een spook toevoegen of veranderen
 1. Maak een **GhostData** aan (Create → Spookhuis → Ghost Data): naam, prefab, roep (audio), plaatje voor de gedachtebel, puzzel en kamer.
@@ -114,7 +116,7 @@ Panelen zijn world-space en staan als prefab in `Prefabs/UI`. Tekst en plaatjes 
 
 ### Geluid, VFX en kleuren
 - **Geluid:** de roep van een spook staat in zijn GhostData; ambient hoort bij de kamer. Houd alles onder het volumeplafond.
-- **VFX:** zuig-effect, "Gevangen!" en de zwarte deur zitten in `VFX/` (Viktor).
+- **VFX:** zuig-effect, "Gevangen!" en de zwarte deur zitten in `VFX/`.
 - **Kleuren:** palet per kamer staat in `Art/Palette`.
 
 ## 5. Waar het pathway bij hoort

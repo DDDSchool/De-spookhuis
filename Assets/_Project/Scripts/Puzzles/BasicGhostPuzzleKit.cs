@@ -16,6 +16,9 @@ public class BasicGhostPuzzleKit : MonoBehaviour
         if (alrSolved) return;
         alrSolved = true;
 
+        // Gevangen: helemaal zichtbaar, ook zonder UV-licht, zodat je het spook ziet wegvliegen.
+        if (TryGetComponent(out GhostReveal reveal)) reveal.ShowFully();
+
         //yeet the ghost up for testing
         transform.DOMove(transform.position + Vector3.up * 5, 5)
          .OnComplete(() => Destroy(gameObject));

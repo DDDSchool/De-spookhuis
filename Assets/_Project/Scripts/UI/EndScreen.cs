@@ -13,7 +13,7 @@ public class EndScreen : MonoBehaviour
 
     [Header("Teksten")]
     [SerializeField] string winTitle = "Gevangen!";
-    [SerializeField, TextArea] string winMessage = "Boe is gevangen. Het huis is weer een beetje minder eng.";
+    [SerializeField, TextArea] string winMessage = "Je hebt alle spoken gevangen. Het huis is weer een beetje minder eng.";
     [SerializeField] string loseTitle = "Te bang!";
     [SerializeField, TextArea] string loseMessage = "Het spook won deze keer. Probeer het nog eens: zoek de beer en geef hem aan het spook.";
 
@@ -39,7 +39,13 @@ public class EndScreen : MonoBehaviour
         if (forward.sqrMagnitude < 0.001f) forward = cam.transform.up; // recht omhoog of omlaag gekeken
         forward.Normalize();
 
-        float distance = GameManager.config.settings.endPanelDistance;
+        // Staat er een muur of kast in de weg, dan het paneel vóór die muur zetten; anders zie je het niet
+        // en kun je niet op Opnieuw drukken.
+        GameSettings settings = GameManager.config.settings;
+        float distance = settings.endPanelDistance;
+        if (Physics.Raycast(cam.transform.position, forward, out RaycastHit hit, distance, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+            distance = Mathf.Max(hit.distance - settings.endPanelWallGap, settings.endPanelMinDistance);
+
         transform.position = cam.transform.position + forward * distance;
         transform.rotation = Quaternion.LookRotation(forward, Vector3.up);
     }

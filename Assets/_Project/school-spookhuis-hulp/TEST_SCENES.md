@@ -129,7 +129,7 @@ Een kleine ruimte met een paneel per testscene (titel, pathway-les, korte omschr
 - **Staat erin:** één spook met een van de drie puzzeltypes en een gedachtebel; een kleine variant voor elk type.
 - **Probeer:** de puzzel oplossen (voorwerp brengen, lade openen, radio uitzetten) en zien dat het spook tevoorschijn komt.
 - **Uitleg:** drie puzzeltypes, max twee stappen, een plaatje als hint, een puzzel kan niet mislukken.
-- **In de game:** `Puzzle` met `BringPuzzle`, `OpenRemovePuzzle`, `TogglePuzzle`. **Giechel en `LightSwitch` bouwt Daniël zelf** in deze scene of in de woonkamer.
+- **In de game:** `Puzzle` met `BringPuzzle`, `OpenRemovePuzzle`, `TogglePuzzle`.
 - **Klaar als:** alle drie de typen werken en een weggegooid voorwerp komt terug.
 
 ## Volgorde en planning
@@ -140,24 +140,4 @@ Een kleine ruimte met een paneel per testscene (titel, pathway-les, korte omschr
 | MVP (26 nov t/m 16 dec) | T08 t/m T11, T13 |
 | Polish (17 dec t/m 13 jan) | T12 en bijwerken van alle scenes naar de laatste scripts |
 
-Prioriteit: **Should**. De hoofdgame gaat voor; een testscene die de hele game blokkeert, wordt overgeslagen. Voor Claude Code geldt: eerst de systemen in de echte game, dan de testscene eromheen.
-
-## Trello-kaarten (kopieer, één kaart per regel)
-
-```
-[S] T00 Testhub (paneel per scene, knop naar elke test)
-[S] T01 Testscene Locomotion (teleport, snap turn, vignet)
-[S] T02 Testscene Voorwerpen pakken en gooien (5+ soorten)
-[S] T03 Testscene Sockets (riem-holsters, geefzone)
-[S] T04 Testscene Geluid en haptiek
-[S] T05 Testscene Activation events (zaklamp, spookval)
-[S] T06 Testscene Near-Far en Ray (deur, lade, knop)
-[S] T07 Testscene UI in de wereld (menu, horloge, gedachtebel)
-[S] T08 Testscene Comfort
-[S] T09 Testscene Prestaties en licht (fps-teller)
-[S] T10 Testscene Bouwen en delen (APK)
-[S] T11 Testscene Spookval als eigen interactable
-[S] T12 Testscene Deur met slot
-[S] T13 Testscene Mini-puzzel (3 puzzeltypes)
-[S] InfoPanel prefab (titel, pathway-les, uitleg, "In de game")
-```
+Prioriteit: **Should**. De hoofdgame gaat voor; een testscene die de hele game blokkeert, wordt overgeslagen. Voor Claude Code geldt: eerst de systemen in de echte game, dan de testscene eromheen. Of en wanneer een testscene gemaakt wordt, staat op Trello.

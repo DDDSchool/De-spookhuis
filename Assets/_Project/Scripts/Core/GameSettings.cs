@@ -44,6 +44,16 @@ public class GameSettings : ScriptableObject
     [Tooltip("Hoe ver de lichtbundel reikt, in meter. Voorlopig.")]
     [Range(1f, 20f)] public float beamRange = 6f;
 
+    [Header("Spook zichtbaar maken (UV-zaklamp)")]
+    [Tooltip("Hoeveel seconden je met de UV-zaklamp op een spook moet schijnen tot het helemaal zichtbaar is. Voorlopig.")]
+    [Range(0.2f, 10f)] public float ghostRevealSeconds = 2f;
+
+    [Tooltip("Hoeveel seconden een spook nodig heeft om weer te verdwijnen als er geen UV-licht meer op valt. Voorlopig.")]
+    [Range(0.2f, 20f)] public float ghostFadeSeconds = 4f;
+
+    [Tooltip("Hoe zichtbaar een spook is zonder UV-licht (0 = onzichtbaar, 1 = helemaal). Iets boven 0 geeft een vage glinstering als hint.")]
+    [Range(0f, 1f)] public float ghostHiddenAlpha = 0f;
+
     [Header("Angstmeter")]
     [Tooltip("Bij deze waarde is de meter vol: game-over.")]
     [Range(10f, 500f)] public float fearMax = 100f;
@@ -60,6 +70,12 @@ public class GameSettings : ScriptableObject
 
     [Tooltip("Hoe ver het eindpaneel voor je hoofd verschijnt, in meter.")]
     [Range(0.8f, 3f)] public float endPanelDistance = 1.5f;
+
+    [Tooltip("Staat er een muur dichterbij, dan komt het paneel zoveel meter vóór die muur.")]
+    [Range(0.02f, 0.5f)] public float endPanelWallGap = 0.1f;
+
+    [Tooltip("Dichterbij dan dit komt het paneel nooit, ook niet als je met je neus tegen een muur staat.")]
+    [Range(0.3f, 1f)] public float endPanelMinDistance = 0.5f;
 
     [Header("Trillen (haptiek)")]
     [Tooltip("Binnen deze afstand in meter trilt de linker controller als er een spook dichtbij is. Voorlopig.")]

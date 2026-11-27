@@ -165,21 +165,19 @@ Startmenu (Spelen, Comfort-instellingen, Stoppen), pauzemenu (hervatten, instell
 
 - **Must:** 2 kamers (woonkamer, slaapkamer) + gang, 4 spoken met puzzel, zaklamp, spookval, riem, meter, horloge met haptiek, spatial audio, pikzwarte deuren, menu's en eindscherm, alle VR-basis, comfort.
 - **Should:** gang als hub met schakelaar, tweehands-richten, weggegooide voorwerpen die terugkomen, spanning die oploopt, Play-Expo-vriendelijk starten.
-- **Could (pas na de vertical slice):** zolder met De Bewoner, Rommelaar, zaklamp-reacties per spooktype, moeilijkheidsgraden, uv-lamp, stem-nadoend spook, multiplayer (besloten door het team op 16 nov; kaart S35).
+- **Could (pas na de vertical slice):** zolder met De Bewoner, Rommelaar, zaklamp-reacties per spooktype, moeilijkheidsgraden, uv-lamp, stem-nadoend spook, multiplayer (besloten door het team op 16 nov).
 - **Won't:** jumpscares, geweld, PC-versie, savegames (de voortgang opslaan; comfort-instellingen onthouden mag wel), meer kamers dan woonkamer, slaapkamer, gang en (als Could) de zolder.
 
 Eerst álle Musts, dan Shoulds; een Could pas als alle Musts én Shoulds af zijn.
 
-## 11. Verantwoordelijkheden en wat Claude Code **niet** bouwt
+## 11. Wie wat doet
 
-- **Daniël** bouwt zelf: `LightSwitch`, `GiechelPuzzle` en het gedrag van het spook Giechel. Claude Code maakt hiervoor alleen een leeg bestand met TODO's, en legt op verzoek uit hoe de `Puzzle`-basisklasse werkt in plaats van de oplossing te schrijven.
-- **Viktor** is de allrounder: backend-systemen, VFX (Unity VFX/Shader Graph), bugfixes en wat er verder tussendoor komt. Hij pakt losse taken op in elke lijst. Claude Code raakt de VFX-assets niet aan en laat bugfixes in code die Viktor net heeft aangepast aan hem, tenzij hij erom vraagt.
-- **Artist-werk** (modellen, texturen, geluid) komt van de ontwerpers; Claude Code gebruikt placeholders (kubussen, capsules, stille geluidsbestanden) tot de echte assets er zijn.
+Alle taken staan op Trello (https://trello.com/b/AK7eTg6w/spookhuis-p2), en daar spreek je ook af wie wat oppakt; dit document wijst niemand iets toe. Hoe Claude Code meewerkt staat in `CLAUDE.md` (Rollen). Zolang er geen echte assets zijn, gebruikt Claude Code placeholders (kubussen, plaatjes, stille geluidsbestanden).
 
 ## 12. Hoe Claude Code hier werkt
 
-- Bouw per kleine, afgebakende taak uit de Trello-lijst **Scripts** (zie `PROJECT_PLAN.md` voor de volgorde en klaar-criteria per sprint).
-- Eén branch per taak. Test op de Quest 3 voordat iets klaar is; "werkt in de editor" telt niet.
+- Bouw per kleine, afgebakende taak (de taken staan op Trello; zie `PROJECT_PLAN.md` voor de volgorde en klaar-criteria per sprint).
+- Umbyz commit en pusht; vraag of het op `main` of op een eigen branch moet. Test eerst in de XR Interaction Simulator en daarna op de Quest 3 voordat iets klaar is; "werkt in de editor" telt niet.
 - Houd scripts klein en leesbaar; de studenten moeten ze kunnen begrijpen. Zet waarden in `GameSettings`, geen magische getallen.
 - Geen `Find`/`GetComponent` in `Update`; geen geheugenallocaties per frame (Quest 3).
 - Leg na elke taak in 3 tot 5 zinnen in het Nederlands uit wat je gebouwd hebt en hoe je het test.

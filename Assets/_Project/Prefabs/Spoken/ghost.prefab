@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 888693367382785025}
   - component: {fileID: 2551228242125072994}
   - component: {fileID: 8875859164399721439}
+  - component: {fileID: 5814485540732982401}
   m_Layer: 0
   m_Name: ghost
   m_TagString: Untagged
@@ -189,7 +190,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2.4, y: 3.2, z: 2.4}
-  m_Center: {x: 0, y: 0.7, z: 0}
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!114 &8875859164399721439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +204,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleBoe
   teddybearPrehabs: {fileID: 5201872161412792873, guid: 807a1882a50da5d4d9768d5245a17ec8, type: 3}
+--- !u!114 &5814485540732982401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4408454588423161057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a607f4a2728e348a0a7af12b961de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostReveal
+  card: {fileID: 5748758692090343617}
+  bubble: {fileID: 3772877320078476532}
 --- !u!1 &4536015383025534927
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +230,7 @@ GameObject:
   - component: {fileID: 5463464806693689665}
   - component: {fileID: 702182440899631636}
   - component: {fileID: 8600863245409591670}
+  - component: {fileID: 3772877320078476532}
   m_Layer: 0
   m_Name: Gedachtebel
   m_TagString: Untagged
@@ -242,7 +258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.2}
+  m_AnchoredPosition: {x: 0, y: 3}
   m_SizeDelta: {x: 500, y: 460}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5463464806693689665
@@ -304,6 +320,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LookAtPlayer
   onlyTurnAroundY: 0
+--- !u!225 &3772877320078476532
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4536015383025534927}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &5009552555431004728
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +435,7 @@ Transform:
   m_GameObject: {fileID: 5679920792644347448}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 2.7568228, y: 2.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -100,6 +100,9 @@ public static class GameManager
         List<GhostType> remainingGhost = Enum.GetValues(typeof(GhostType)).Cast<GhostType>().ToList();
 
         //here the ghost that have always this spawn (only if that room wants ghosts)
+        //Boe en Bewoner gaan nooit naar een andere kamer: wil hun kamer geen spoken, dan doen ze niet mee.
+        remainingGhost.Remove(GhostType.Bewoner);
+        remainingGhost.Remove(GhostType.Boe);
         if (GhostCountFor(RoomTypes.attic) > 0) AddGhostToRoom(RoomTypes.attic, GhostType.Bewoner);
         if (GhostCountFor(RoomTypes.livingRoom) > 0) AddGhostToRoom(RoomTypes.livingRoom, GhostType.Boe);
 
@@ -135,10 +138,11 @@ public static class GameManager
         }
     }
 
-    // Hoeveel spoken deze kamer wil. Staat de kamer niet in de scene, dan de oude regel: 2.
+    // Hoeveel spoken deze kamer wil (RoomManager.ghostCount). Staat de kamer niet in de scene, dan 0:
+    // anders telt het spel spoken mee die nergens kunnen verschijnen en kun je nooit winnen.
     static int GhostCountFor(RoomTypes roomType)
     {
-        return rooms.TryGetValue(roomType, out RoomManager room) ? room.ghostCount : 2;
+        return rooms.TryGetValue(roomType, out RoomManager room) ? room.ghostCount : 0;
     }
 
     static public int TotalGhosts()
@@ -265,6 +269,7 @@ public static class GameManager
 
     static public void CaughtGhost() //mabye need ghosttype
     {
+        if (gameOver) return; // na "Te bang!" telt een vangst niet meer
         currentRoom.ghostCaught += 1;
         totaleGhostCaught += 1;
         onGhostCaught?.Invoke();
