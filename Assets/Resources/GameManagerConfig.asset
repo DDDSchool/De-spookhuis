@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerConfig
   xrSimulator: {fileID: 8135023674665499069, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
   roomLoadingScreen: {fileID: 1976006392513508931, guid: 317305d7d9ac603488b6b45a64ce11d4, type: 3}
+  endScreen: {fileID: 5328449304857317508, guid: a65729a2c05c3744d859a4e7fd469e42, type: 3}
+  settings: {fileID: 11400000, guid: 02d4104f9734edb4ab205138432d625c, type: 2}
   ghostInfo:
   - ghostType: 0
     ghost: {fileID: 4408454588423161057, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
@@ -28,3 +30,4 @@ MonoBehaviour:
   - ghostType: 5
     ghost: {fileID: 4408454588423161057, guid: f2cdcd92218a8654d9e7d647c49807db, type: 3}
   roomSwitchingDur: 0.5
+  fadePlaneDistance: 0.3

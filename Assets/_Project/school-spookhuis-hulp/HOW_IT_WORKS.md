@@ -1,6 +1,6 @@
 # Hoe Kamer vol spoken in elkaar zit (en hoe je iets verandert)
 
-Voor het hele team (ontwerpers en technici). Dit is een **voorstel voor de indeling**; zodra het Unity-project er staat, past Claude Code dit bestand aan op wat er echt is. Verander je iets aan de structuur, pas dit bestand dan ook aan.
+Voor het hele team (ontwerpers en technici). De mappen in §1 zijn op 27 nov opgeruimd en kloppen met het project. Verander je iets aan de structuur, pas dit bestand dan ook aan.
 
 Eerst lezen: `GAME_DESIGN.md` (wat het spel doet) en `PROJECT_PLAN.md` (wanneer). Dit bestand zegt **waar het in het project staat** en **hoe je het aanpast**.
 
@@ -10,21 +10,37 @@ Alles van ons staat onder één map, zodat het niet door de standaardbestanden v
 
 ```
 Assets/_Project/
-  Scenes/        Hoofdmenu, Gang, Woonkamer, Slaapkamer (Zolder later)
+  Scenes/        DDDTestScene (de scene van het prototype)
+    Werk/        werkscenes per persoon: modelscene-raji, models-daan, Viktor, Placeholder_Huis (met hun lichtmappen)
     Test/        Pathway_Comparable (alle pathway-lessen in één ruimte) en later T00–T13 (zie TEST_SCENES.md), niet in de releasebuild
   Scripts/
-    Core/        GameManager, GameSettings, FearMeter
-    Player/      ComfortSettings, Flashlight, GhostTrap, Belt, HapticsManager, NearbyHaptics
-    Ghosts/      Ghost, GhostData, HidingSpot
-    Puzzles/     Puzzle (basis), BringPuzzle, OpenRemovePuzzle, TogglePuzzle, GiveZone
-    World/       Room, Door, Interactable, ReturnToStart, Toggleable, PullRope (testscene), LightSwitch (Daniël)
-    UI/          Menu's, ComfortMenu, Watch, ThoughtBubble, CaughtMessage, FpsCounter, ButtonFeedback
-  Data/          GameSettings.asset, een GhostData per spook
-  Prefabs/       Player (de VR-speler), Zaklamp, Spookval (nu nog Spookval_Placeholder), Spoken, Props, Deuren, UI-panelen (InfoPanel, ComfortPanel)
-  Art/           Models, Materials, Textures, Palette
-  Audio/         Roep per spook, Ambient per kamer, SFX, UI
-  VFX/           Zuig-effect, Gevangen!, Zwarte deur (Viktor)
+    Core/        GameManager, GameManagerConfig, RoomManager, FearMeter, GameSettings
+    Player/      Player, ComfortSettings, Flashlight, HapticsManager, NearbyHaptics (later GhostTrap, Belt)
+    Ghosts/      LookAtPlayer (later Ghost, GhostData, HidingSpot)
+    Puzzles/     BasicGhostPuzzleKit (basis), PuzzleBoe, PuzzelGiechel
+    World/       InteractableTrigger, Grabable, PhysicsOnTouch, RoomDoorInteractable, ReturnToStart, Toggleable, PullRope (testscene); later LightSwitch
+    UI/          ComfortMenu, FpsCounter, ButtonFeedback (later menu's, Watch, ThoughtBubble, CaughtMessage)
+    Editor/      InteractableEditor (alleen in de editor, komt niet in de build)
+  Data/          GameSettings.asset (later een GhostData per spook)
+  Prefabs/       Player (de VR-speler), Zaklamp, Spookval_Placeholder
+    Props/       meubels uit assetpackspookhuis.fbx, Lightswitch, Speelgoedbeer
+    Kamers/      Kamer_Gang, Kamer_Woonkamer, Kamer_Keuken, Kamer_Zolder
+    Spoken/      ghost (nu een placeholder-kubus)
+    Deuren/      ZwarteDeur (met deurscript), door
+    UI/          SwitchingRoomGUI, ComfortPanel, InfoPanel
+  Art/
+    Models/      Huis (assetpackspookhuis.fbx, Lightswitch.fbx), Daan (modelsDaan.fbx), Placeholder (oude GLB's)
+    Materials/   Placeholder, Test
+    UI/          Placeholder_Beer
+  Audio/         Placeholder (later roep per spook, ambient per kamer, SFX, UI)
+  VFX/           (later: zuig-effect, Gevangen!, zwarte deur; Viktor)
+  _Oud/          wat we niet meer gebruiken (template-resten, oude testscenes); niet in de build
+  school-spookhuis-hulp/   deze documenten
 ```
+
+Buiten `_Project` staan alleen Unity- en pluginmappen: `Plugins` (DOTween), `QuickOutline`, `Resources`, `Samples` (XRI Starter Assets), `Settings` (URP), `TextMesh Pro`, `XR`, `XRI` en `InputSystem_Actions`. `Resources` blijft in de hoofdmap: `GameManagerConfig` en `DOTweenSettings` worden op naam geladen en moeten in een map `Resources` staan.
+
+Verplaats bestanden altijd **in Unity** (slepen in het Project-venster), nooit in Verkenner. Dan houdt elk bestand zijn GUID en blijven scenes en prefabs ernaar verwijzen.
 
 De VR-speler komt uit de XRI Starter Assets (in `Assets/Samples/XR Interaction Toolkit/3.3.2/`; daar niets aan veranderen). `Prefabs/Player.prefab` is een variant van `XR Origin (XR Rig)` met het vignet en `ComfortSettings` erbij. Wil je de speler aanpassen, doe het dan in die variant, niet in het sample.
 

@@ -19,10 +19,15 @@ MonoBehaviour:
   seatedExtraHeight: 0.4
   volumeCap: 0.8
   startVolume: 0.7
-  returnDelay: 1
+  returnDelay: 4
   returnMovedDistance: 0.1
   beamAngle: 25
   beamRange: 6
+  fearMax: 100
+  fearPerSecond: 2
+  fearPerCatch: 15
+  winPanelDelay: 2
+  endPanelDistance: 1.5
   nearbyRadius: 3
   nearbyMaxStrength: 0.5
   nearbyPulseInterval: 0.25

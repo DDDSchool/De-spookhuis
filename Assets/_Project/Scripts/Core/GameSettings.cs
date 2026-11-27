@@ -44,6 +44,23 @@ public class GameSettings : ScriptableObject
     [Tooltip("Hoe ver de lichtbundel reikt, in meter. Voorlopig.")]
     [Range(1f, 20f)] public float beamRange = 6f;
 
+    [Header("Angstmeter")]
+    [Tooltip("Bij deze waarde is de meter vol: game-over.")]
+    [Range(10f, 500f)] public float fearMax = 100f;
+
+    [Tooltip("Hoeveel de angst per seconde stijgt zolang er in je kamer nog een spook los is. Bij 2 en max 100 heb je 50 seconden. Voorlopig.")]
+    [Range(0f, 20f)] public float fearPerSecond = 2f;
+
+    [Tooltip("Hoeveel de angst zakt als je een spook vangt. Voorlopig.")]
+    [Range(0f, 100f)] public float fearPerCatch = 15f;
+
+    [Header("Einde (gewonnen of game-over)")]
+    [Tooltip("Hoeveel seconden na de laatste vangst het 'Gevangen!'-paneel verschijnt, zodat je het spook nog ziet wegvliegen.")]
+    [Range(0f, 6f)] public float winPanelDelay = 2f;
+
+    [Tooltip("Hoe ver het eindpaneel voor je hoofd verschijnt, in meter.")]
+    [Range(0.8f, 3f)] public float endPanelDistance = 1.5f;
+
     [Header("Trillen (haptiek)")]
     [Tooltip("Binnen deze afstand in meter trilt de linker controller als er een spook dichtbij is. Voorlopig.")]
     [Range(0.5f, 10f)] public float nearbyRadius = 3f;

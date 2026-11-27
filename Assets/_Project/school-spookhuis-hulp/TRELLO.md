@@ -8,7 +8,7 @@ Momentopname van https://trello.com/b/AK7eTg6w/spookhuis-p2 (stand 13 nov 2026).
 
 **Klaar-criterium voor elke kaart:** de fase-criteria in `PROJECT_PLAN.md`, getest op de Quest 3, geen placeholder meer als het de laatste fase is. Zie ook de regels in `CLAUDE.md`.
 
-**Niet door Claude Code te bouwen:** Giechel is voor Daniël: kaart `S14 Puzzle Giechel`, met de scripts `LightSwitch` en `GiechelPuzzle`. VFX-kaarten zijn voor Viktor; Claude Code raakt de VFX-assets niet aan. Art- en geluidskaarten zijn voor de artists; Claude Code gebruikt placeholders.
+**Wie doet wat (sinds 27 nov, zie `CLAUDE.md` > Rollen):** de script-, VFX- en backendkaarten zijn van Daniël en Viktor; zij werken ze elke week af (bijvoorbeeld `S14 Puzzle Giechel` met `LightSwitch` en `PuzzelGiechel`). Claude Code doet met Raji alleen fixes en longshots waar Raji om vraagt, en noemt dan welke kaarten het raakt. Art- en geluidskaarten zijn voor de artists; Claude Code gebruikt placeholders.
 
 
 ## Assets (artist)
